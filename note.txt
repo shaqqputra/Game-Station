@@ -5,15 +5,15 @@
     // create name, address, phone, money
     // ke menu customer
     // 1. game list
-    // 2. buy game
+    // 2. buy game -> masukkin class game sama order
     // 3. become member -> menu member (money - 20000)
     // 4. check money
 
     // menu member = menu customer (1 - 3 gaada become member)
 
     // menu admin
-    // create name, phone
-    // 1. add game
+    // create name, phone (pake class admin)
+    // 1. add game -> ada publishernya
     // 2. update game
     // 3. delete game
     // 4. view all game
