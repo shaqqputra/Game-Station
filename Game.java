@@ -29,6 +29,14 @@ public class Game {
         this.gamePrice = gamePrice;
     }
 
+    public String getGameGenre() {
+        return this.gameGenre;
+    }
+
+    public void setGameGenre(String gameGenre) {
+        this.gameGenre = gameGenre;
+    }
+
 
     
 
