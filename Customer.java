@@ -1,115 +1,92 @@
+import java.io.*;
 import java.util.*;
+
 
 public class Customer 
 {
-    Scanner s1 = new Scanner(System.in);
-    ArrayList customerList = new ArrayList<Game>();
+    static Scanner s1 = new Scanner(System.in);
+    ArrayList<Customer> customerList = new ArrayList<Customer>();
     private String id;
     private String name;
     private String address;
     private String phone;
     private double money;
 
-    public String getId() 
-    {
+    
+
+    public String getId() {
         return id;
     }
-    public void setId() 
-    {
-        String idTemp;
-        idTemp = UUID.randomUUID().toString();
-        this.id = idTemp;
-        customerList.add(new Customer(idTemp));
+
+    public void setId(String id) {
+        this.id = id;
     }
-    public String getName() 
-    {
+
+    public String getName() {
         return name;
     }
+
     public void setName() 
     {
-        String nameTemp;
-        do
+        System.out.print("Enter your name here: ");
+        String name = s1.nextLine();
+        if(name.length() > 20)
         {
-            System.out.print("Enter your name here [5 - 20 Characters]: ");
-            nameTemp = s1.nextLine();
+            throw new IllegalArgumentException("Name must be 1 - 20 characters!");
         }
-        while(nameTemp.length() < 5 || nameTemp.length()> 20);
-        this.name = nameTemp;
-        customerList.add(new Customer(nameTemp));
+        else if(name.length() < 1)
+        {
+            throw new IllegalArgumentException("Invalid name input!");
+        }
+        this.name = name;
     }
+
     public String getAddress() 
     {
         return address;
     }
+
     public void setAddress() 
     {
-        String addressTemp;
-        do
+        System.out.print("Enter your address here: ");
+        String address = s1.nextLine();
+        if(address.length() > 30)
         {
-            System.out.println("Enter your address: ");
-            addressTemp = s1.nextLine();
+            throw new IllegalArgumentException("Address cannot exceed than 30 characters!");
         }
-        while(addressTemp.length() < 0 || addressTemp.length() > 20);
-        this.address = addressTemp;
-        customerList.add(new Customer(addressTemp));
+        this.address = address;
     }
-    public String getPhone() 
-    {
+
+    public String getPhone() {
         return phone;
     }
 
-
-    public void setPhone() 
-    {
-        String phoneTemp;
-        boolean isValid =  phone.matches("\\d{3}-\\d{3}\\-d{4}");
-        do
-        {
-            System.out.print("Enter your phone number: ");
-            phoneTemp = s1.nextLine();
-            if(phoneTemp != isValid)
-            {
-                System.out.println("Invalid phone number!");
-            }
-        }
-        while(!isValid);
-        this.phone = phoneTemp;
-        customerList.add(new Customer(phoneTemp));
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getMoney() 
-    {
+    public double getMoney() {
         return money;
     }
-    public void setMoney() 
-    {
-        double moneyTemp;
-        do
-        {
-            System.out.print("Enter the amount of your money [Min 10000 - Max 1000000]: ");
-            moneyTemp = s1.nextDouble();
-            s1.nextLine();
-            if(moneyTemp < 0)
-            {
-                System.out.println("Money cannot below than 10000");
-            }
-            else if(moneyTemp > 1000000)
-            {
-                System.out.println("Money cannot exceed than 1000000");
-            }
-        }
-        while(moneyTemp < 10000 || moneyTemp > 1000000);
-        this.money = moneyTemp;
-        customerList.add(new Customer(moneyTemp));
+
+    public void setMoney(double money) {
+        this.money = money;
     }
 
-    public void createCustomer()
+
+    public void addCustomer()
     {
-        setId();
-        setName();
-        setAddress();
-        setPhone();
-        setMoney();
+        id = "" + (long)(Math.random() * 40000000L);
+        setName(name);
+        setAddress(address);
+        customerList.add(id, name, address);
+    }
+
+    static void backToMenu()
+    {
+        System.out.println("");
+        System.out.print("Press Enter To Go Back...");
+        s1.nextLine();
     }
 
     public void displayCustomer(){
@@ -139,7 +116,7 @@ public class Customer
             {
                 case 1:
                 {
-                    createCustomer();
+                    addCustomer();
                     break;
                 }
                 case 2:

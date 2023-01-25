@@ -58,17 +58,9 @@ public class Employee {
             String employeePhoneNumber = input.nextLine();
     }    
 
-    // update
-    // public void updateEmployee(){
-    //     System.out.println("========================");
-    //     System.out.println("    UPDATE EMPLOYEE     ");
-    //     System.out.println("========================");
-
-    //         // System.out.println("Employee Name: "+ );
-    //         // System.out.println("Employee Id: "+ );
-    //         // System.out.println("Employee Phone Number: "+ );s
-
-    // }
+    public void deleteEmployee(){
+        
+    }
 
     // show
     public void viewEmployee(){
@@ -87,6 +79,39 @@ public class Employee {
                 System.out.println();
             }    
         }
+    }
+
+    public void employeeMenu(){
+        int input;
+        do{
+            System.out.println("1. Add Employee");
+            System.out.println("2. View All Employee");
+            System.out.println("3. Update Employee");
+            System.out.println("4. Delete Employee");
+            System.out.println("5. Quit");
+            System.out.println("Input: ");
+            input = scan.nextInt();scan.nextLine();
+
+            switch(input){
+                case 1:{
+                    createEmployee();
+                    break;
+                }
+                case 2:{
+                    viewEmployee();
+                    break;
+                }
+                case 3:{
+
+                }
+                case 4:{
+
+                }
+                case 5:{
+                    break;
+                }
+            }
+        } while(input < 1 || input > 5);
     }
 }
 

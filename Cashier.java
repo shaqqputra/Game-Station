@@ -1,66 +1,30 @@
-public class Cashier extends Employee{
-    private String cashierName;
-    private String cashierId;
-    private String paymentMethod;
-    private double gamePrice;
-    private String gameName;
+import java.util.Scanner;
 
+public class Cashier extends Employee{
+    private Game game;
+    Scanner scan = new Scanner(System.in);
+    private int input;
 
     public Cashier() {
+        game = new Game();
 
     }
 
+    public void showOrder(){
+        do{
+            System.out.println("ORDER BILLS");
+            System.out.println("1. Display Bills");
+            System.out.println("Exit");
+            System.out.println("Choose Menu: ");
+            input = scan.nextInt();
 
-    public Cashier(String cashierName, String cashierId, String paymentMethod, double gamePrice, String gameName) {
-        this.cashierName = cashierName;
-        this.cashierId = cashierId;
-        this.paymentMethod = paymentMethod;
-        this.gamePrice = gamePrice;
-        this.gameName = gameName;
+            switch(input){
+                case 1: 
+
+                    break;
+            }
+        }
     }
-
-
-    public String getCashierName() {
-        return this.cashierName;
-    }
-
-    public void setCashierName(String cashierName) {
-        this.cashierName = cashierName;
-    }
-
-    public String getCashierId() {
-        return this.cashierId;
-    }
-
-    public void setCashierId(String cashierId) {
-        this.cashierId = cashierId;
-    }
-
-    public String getPaymentMethod() {
-        return this.paymentMethod;
-    }
-
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
-
-    public double getGamePrice() {
-        return this.gamePrice;
-    }
-
-    public void setGamePrice(double gamePrice) {
-        this.gamePrice = gamePrice;
-    }
-
-    public String getGameName() {
-        return this.gameName;
-    }
-
-    public void setGameName(String gameName) {
-        this.gameName = gameName;
-    }
-
-    // show
     
 
     
